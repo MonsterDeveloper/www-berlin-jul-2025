@@ -1,0 +1,19 @@
+name: www-berlin-jul-2025-mcp
+
+services:
+  minio:
+    image: minio/minio:latest
+    command: ["server", "/data", "--console-address", ":9001"]
+    ports:
+      - "9000:9000" # for API access
+      - "9001:9001" # for the management console (GUI)
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 1s
+      timeout: 20s
+      retries: 20
+
+volumes:
+  minio_data:

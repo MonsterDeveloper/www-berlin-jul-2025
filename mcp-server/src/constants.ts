@@ -1,0 +1,1 @@
+export const MOYSKLAD_ORGANIZATION_ID = "2dba441b-ea93-11ec-0a80-0854000600ca";
